@@ -1,3 +1,4 @@
+import 'package:crypto_tracker/views/app_route.dart';
 import 'package:crypto_tracker/views/home.view.dart';
 import 'package:flutter/material.dart';
 
@@ -12,11 +13,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'CrypTrack',
+      initialRoute: AppRoutes.home,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        backgroundColor: Colors.white,
       ),
-      home: const HomeView(title: 'Crypto Tracker'),
+      routes: {
+        AppRoutes.home: (_) => const HomeView(title: 'CrypTrack'),
+      },
     );
   }
 }

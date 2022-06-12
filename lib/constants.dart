@@ -10,4 +10,7 @@ List<String> asset_ids = [
   'algorand',
 ];
 
-String api_url = 'https://api.coincap.io/v2/assets?ids=${asset_ids.join(",")}';
+String api_url_assets =
+    'https://api.coincap.io/v2/assets?ids=${asset_ids.join(",")}';
+
+String api_url_rates = 'https://api.coincap.io/v2/rates';
