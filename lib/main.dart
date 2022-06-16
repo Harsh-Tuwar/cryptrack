@@ -1,28 +1,36 @@
-import 'package:crypto_tracker/views/app_route.dart';
-import 'package:crypto_tracker/views/home.view.dart';
+import 'package:crypto_tracker/app_route.dart';
+import 'package:crypto_tracker/controllers/auth_controller.dart';
+import 'package:crypto_tracker/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  final AuthController authController =
+      Get.put<AuthController>(AuthController());
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'CrypTrack',
+      defaultTransition: Transition.rightToLeft,
       initialRoute: AppRoutes.home,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         backgroundColor: Colors.white,
       ),
-      routes: {
-        AppRoutes.home: (_) => const HomeView(title: 'CrypTrack'),
-      },
+      getPages: AppRoutes.routes,
     );
   }
 }
