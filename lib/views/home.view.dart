@@ -1,4 +1,5 @@
 import 'package:crypto_tracker/constants.dart';
+import 'package:crypto_tracker/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -13,6 +14,8 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final AuthController authController = AuthController();
+
   Future<List<dynamic>> getAssets() async {
     final url = Uri.parse(api_url_assets);
     final response = await http.get(url);
@@ -63,8 +66,8 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
-          const SliverAppBar(
-            title: Text(
+          SliverAppBar(
+            title: const Text(
               'CrypTrack',
               style: TextStyle(
                 color: Colors.black,
@@ -73,6 +76,17 @@ class _HomeViewState extends State<HomeView> {
             floating: true,
             pinned: true,
             snap: true,
+            actions: [
+              IconButton(
+                onPressed: () async {
+                  await authController.handleSignOut();
+                },
+                icon: const Icon(
+                  Icons.logout,
+                  color: Colors.black,
+                ),
+              ),
+            ],
             backgroundColor: Colors.white,
           ),
           SliverToBoxAdapter(

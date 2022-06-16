@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "265834593815",
+    "project_id": "crypt-track",
+    "storage_bucket": "crypt-track.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265834593815:android:bc5b74841f458f41862652",
+        "android_client_info": {
+          "package_name": "com.example.crypto_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265834593815-sf9pe09oemajguhae2j8vegb5ru9acqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSAJUs6IHiddzBwLVlrhNEQs9hTNEvpK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265834593815-sf9pe09oemajguhae2j8vegb5ru9acqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
